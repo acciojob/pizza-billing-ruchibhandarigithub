@@ -9,7 +9,7 @@ public class Pizza {
     boolean extraTopping;
     boolean istakeway ;
     String pizzbase;
-    String Cheese = "Extra Toppings Added: ";
+    String Cheese = "Extra Cheese Added: ";
     String topping ="Extra Toppings Added: ";
     String takeway ="Paperbag Added: ";
 
@@ -39,6 +39,7 @@ public class Pizza {
     public void addExtraCheese(){
       if(extraCheese==false){
           Cheese+=80;
+          this.price+=80;
           extraCheese=true;
       }
         // your code goes here
@@ -47,11 +48,13 @@ public class Pizza {
     public void addExtraToppings(){
        if(isVeg==true && (extraTopping==false && extraCheese==true)){
            this.topping+=70;
+           this.price+=70;
            extraTopping=true;
 
        }
        else if(isVeg==false && extraTopping==false){
            this.topping+=120;
+           this.price+=120;
            extraTopping=true;
 
        }
@@ -61,6 +64,7 @@ public class Pizza {
     public void addTakeaway(){
         if(istakeway==false){
             this.takeway+=20;
+            this.price+=20;
             istakeway = true;
 
         }
