@@ -8,16 +8,23 @@ public class Pizza {
     boolean extraCheese;
     boolean extraTopping;
     boolean istakeway ;
+    String pizzbase;
+    String Cheese = "Extra Toppings Added: ";
+    String topping ="Extra Toppings Added: ";
+    String takeway ="Paperbag Added: ";
+
 
     public Pizza(Boolean isVeg){
         this.isVeg = isVeg;
         // your code goes here
         if(isVeg==true){
-            System.out.println("Base Price Of The Pizza: " +300);
+            this.pizzbase="Base Price Of The Pizza: "+300;
+
             this.price=300;
         }
-        else{
-            System.out.println("Base Price Of The Pizza: "+ 400);
+         else{
+            this.pizzbase="Base Price Of The Pizza: "+400;
+
             this.price=400;
         }
         this.extraCheese=false;
@@ -31,8 +38,7 @@ public class Pizza {
 
     public void addExtraCheese(){
       if(extraCheese==false){
-          System.out.println("Extra Cheese Added: "+80);
-          this.price = price+80;
+          Cheese+=80;
           extraCheese=true;
       }
         // your code goes here
@@ -40,14 +46,12 @@ public class Pizza {
 
     public void addExtraToppings(){
        if(isVeg==true && (extraTopping==false && extraCheese==true)){
-           System.out.println("Extra Toppings Added: "+70);
-           this.price=price+70;
+           this.topping+=70;
            extraTopping=true;
 
        }
        else if(isVeg==false && extraTopping==false){
-           System.out.println("Extra Toppings Added: "+120);
-           this.price=price+120;
+           this.topping+=120;
            extraTopping=true;
 
        }
@@ -56,8 +60,7 @@ public class Pizza {
 
     public void addTakeaway(){
         if(istakeway==false){
-            System.out.println("Paperbag Added: "+20);
-            this.price=price+20;
+            this.takeway+=20;
             istakeway = true;
 
         }
@@ -65,7 +68,17 @@ public class Pizza {
     }
 
     public String getBill(){
-       this.bill= "Total Price: "+String.valueOf(price);
+        this.bill=pizzbase+"\n";
+        if(extraCheese){
+            this.bill+=Cheese+"\n";
+        }
+        if(extraTopping){
+            this.bill+=topping+"\n";
+        }
+        if(istakeway){
+            this.bill+=takeway+"\n";
+        }
+        this.bill+="Total Price: "+this.price;
         // your code goes here
         return this.bill;
     }
