@@ -39,7 +39,7 @@ public class Pizza {
     }
 
     public void addExtraToppings(){
-       if(isVeg==true && extraTopping==false){
+       if(isVeg==true && (extraTopping==false && extraCheese==true)){
            System.out.println("Extra Toppings Added: "+70);
            this.price=price+70;
            extraTopping=true;
@@ -66,8 +66,6 @@ public class Pizza {
 
     public String getBill(){
        this.bill= "Total Price: "+String.valueOf(price);
-
-
         // your code goes here
         return this.bill;
     }
