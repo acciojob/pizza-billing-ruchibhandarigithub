@@ -7,23 +7,19 @@ public class Pizza {
     private String bill;
     boolean extraCheese;
     boolean extraTopping;
-    boolean istakeway ;
-    String pizzbase;
-    String Cheese = "Extra Cheese Added: ";
-    String topping ="Extra Toppings Added: ";
-    String takeway ="Paperbag Added: ";
+    boolean istakeway;
 
 
     public Pizza(Boolean isVeg){
         this.isVeg = isVeg;
         // your code goes here
         if(isVeg==true){
-            this.pizzbase="Base Price Of The Pizza: "+300;
+            this.bill="Base Price Of The Pizza: "+300+"\n";
 
             this.price=300;
         }
          else{
-            this.pizzbase="Base Price Of The Pizza: "+400;
+            this.bill="Base Price Of The Pizza: "+400+"\n";
 
             this.price=400;
         }
@@ -38,7 +34,7 @@ public class Pizza {
 
     public void addExtraCheese(){
       if(extraCheese==false){
-          Cheese+=80;
+          this.bill+="Extra Cheese Added: "+80+"\n";
           this.price+=80;
           extraCheese=true;
       }
@@ -47,13 +43,15 @@ public class Pizza {
 
     public void addExtraToppings(){
        if(isVeg==true && (extraTopping==false && extraCheese==true)){
-           this.topping+=70;
+           this.bill+="Extra Toppings Added: "+70+"\n";
+
            this.price+=70;
            extraTopping=true;
 
        }
        else if(isVeg==false && extraTopping==false){
-           this.topping+=120;
+           this.bill+="Extra Toppings Added: "+120+"\n";
+
            this.price+=120;
            extraTopping=true;
 
@@ -63,7 +61,8 @@ public class Pizza {
 
     public void addTakeaway(){
         if(istakeway==false){
-            this.takeway+=20;
+            this.bill+="Paperbag Added: "+20+"\n";
+
             this.price+=20;
             istakeway = true;
 
@@ -72,18 +71,9 @@ public class Pizza {
     }
 
     public String getBill(){
-        this.bill=pizzbase+"\n";
-        if(extraCheese){
-            this.bill+=Cheese+"\n";
-        }
-        if(extraTopping){
-            this.bill+=topping+"\n";
-        }
-        if(istakeway){
-            this.bill+=takeway+"\n";
-        }
         this.bill+="Total Price: "+this.price;
-        // your code goes here
+
+
         return this.bill;
     }
 }
