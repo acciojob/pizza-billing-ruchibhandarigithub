@@ -17,7 +17,7 @@ public class Pizza {
             this.price=300;
         }
         else{
-            System.out.println("Base Price Of The Pizza:  "+ 400);
+            System.out.println("Base Price Of The Pizza: "+ 400);
             this.price=400;
         }
         this.extraCheese=false;
