@@ -3,10 +3,11 @@ package com.driver;
 public class Pizza {
 
     private int price;
-    private Boolean isVeg;
+    private boolean isVeg;
     private String bill;
     boolean extraCheese;
     boolean extraTopping;
+    boolean istakeway ;
 
     public Pizza(Boolean isVeg){
         this.isVeg = isVeg;
@@ -21,6 +22,7 @@ public class Pizza {
         }
         this.extraCheese=false;
         this.extraTopping=false;
+        this.istakeway=false;
     }
 
     public int getPrice(){
@@ -53,9 +55,12 @@ public class Pizza {
     }
 
     public void addTakeaway(){
-        System.out.println("Paperbag Added: "+20);
-        this.price=price+20;
+        if(istakeway==false){
+            System.out.println("Paperbag Added: "+20);
+            this.price=price+20;
+            istakeway = true;
 
+        }
         // your code goes here
     }
 
